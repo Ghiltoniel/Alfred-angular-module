@@ -230,7 +230,7 @@ alfred.factory('alfredService', function(websocket, auth, $q, $http) {
                     && typeof(data.Arguments.token) != 'undefined'
                     && typeof(data.Arguments.login) != 'undefined'
                     && data.Arguments.login == login) {
-                    auth.setUser(data);
+                    auth.setUser(data.Arguments);
                     websocket.unsubscribe(callback);
                     deferred.resolve(data);
                 }
