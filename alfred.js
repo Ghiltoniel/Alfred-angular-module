@@ -106,7 +106,7 @@ alfred.factory('alfredWebsocket', function($q) {
     }
 	
 	Service.init = function(param){
-	    createWebsocket('ws://' + param.host + ':' + param.port + '/channel');
+	    createWebsocket('ws://' + param.host + ':' + param.portWebSocket + '/channel');
 	}
 
     Service.send = function(baseCommand, arguments){
@@ -172,7 +172,8 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, $q, $http) 
         parameters = param || {};
         parameters.name = parameters.name || 'Alfred-angular-client';
         parameters.host = parameters.host || 'localhost';
-        parameters.port = parameters.port || 13100;
+        parameters.portWebSocket = parameters.portWebSocket || 13100;
+        parameters.portHttp = parameters.portHttp || 80;
         parameters.onConnect = parameters.onConnect || null;
         parameters.onDisconnect = parameters.onDisconnect || null;  
         
@@ -181,7 +182,7 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, $q, $http) 
         alfredWebsocket.init(parameters);
     
         Service.parameters = parameters;
-        Service.parameters.url = 'http://' + parameters.host;
+        Service.parameters.url = 'http://' + parameters.host + ':' + parameters.portHttp;
     };
     
     Service.subscribe = function (callback) {
