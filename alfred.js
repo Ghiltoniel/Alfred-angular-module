@@ -191,7 +191,6 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, alfredParam
     var Service = {};    
     
     Service.init = function(param){
-		value
         parameters = param || {};
         parameters.name = parameters.name || 'Alfred-angular-client';
         parameters.host = parameters.host || 'localhost';
