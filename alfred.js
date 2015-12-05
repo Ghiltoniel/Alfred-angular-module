@@ -54,7 +54,12 @@ alfred.factory('alfredWebsocket', function($q) {
 
     function createWebsocket(url){
         // Create our alfredWebsocket object with the address to the alfredWebsocket
-        ws = new WebSocket(url);
+        try{
+			ws = new WebSocket(url);
+		}catch(e){
+			throw e;
+			return;
+		}
         ws.onopen = function(){
             for(var i=0;i<Service.callbacksOpen.length;i++){
                 Service.callbacksOpen[i]();
@@ -134,7 +139,7 @@ alfred.factory('alfredWebsocket', function($q) {
     Service.send = function(baseCommand, arguments){
         if(arguments == null)
             arguments = {};
-		var localUser = localStorage.getItem("user");
+		var localUser = localStorage.getItem("alfred-user");
         if (localUser != null) {
             var user = JSON.parse(localUser);
             arguments.token = user.token;
