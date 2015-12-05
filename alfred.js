@@ -13,7 +13,7 @@ alfred.service('alfredAuth', function() {
         },
         setUser: function(newUser) {
             user = newUser;
-			localStorage.setItem('user', JSON.stringify(user));
+			localStorage.setItem('alfred-user', JSON.stringify(user));
         },
         isConnected: function() {
             return !!user;
@@ -35,7 +35,7 @@ alfred.service('alfredParams', function() {
         },
         setParams: function(newParams) {
             params = newParams;
-			localStorage.setItem('params', JSON.stringify(params));
+			localStorage.setItem('alfred-params', JSON.stringify(params));
         },
         isConfigured: function() {
             return !!params;
