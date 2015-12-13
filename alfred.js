@@ -14,7 +14,7 @@ alfred.service('alfredAuth', function() {
         setUser: function(newUser) {
             user = newUser;
 			if(user == null){
-				localStorage.deleteKey('alfred-user');
+				localStorage.removeItem('alfred-user');
 			} else{
 				localStorage.setItem('alfred-user', JSON.stringify(user));
 			}
