@@ -13,7 +13,11 @@ alfred.service('alfredAuth', function() {
         },
         setUser: function(newUser) {
             user = newUser;
-			localStorage.setItem('alfred-user', JSON.stringify(user));
+			if(user == null){
+				localStorage.deleteKey('alfred-user');
+			} else{
+				localStorage.setItem('alfred-user', JSON.stringify(user));
+			}
         },
         isConnected: function() {
             return !!user;
