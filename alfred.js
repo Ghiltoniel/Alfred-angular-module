@@ -289,7 +289,7 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, alfredParam
                 else if(data != null
                     && data.Command == 'Logout'){
                     alfredWebsocket.unsubscribe(callback);
-					alfredAuth.setLogin(null);
+					alfredAuth.setUser(null);
                     deferred.resolve(data);
                 }
             };
