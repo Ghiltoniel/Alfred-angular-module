@@ -634,6 +634,12 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, alfredParam
 		},
         directPlay: function (music) {
             alfredWebsocket.send("MediaManager_DirectPlay", music);
+        },
+        addToEnd: function (music) {
+            alfredWebsocket.send("MediaManager_AddToPlaylist", music);
+        },
+        addToEndAndPlay: function (music) {
+            alfredWebsocket.send("MediaManager_AddToPlaylistAndPlay", music);
         }
     };
     
