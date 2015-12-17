@@ -640,6 +640,16 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, alfredParam
         },
         addToEndAndPlay: function (music) {
             alfredWebsocket.send("MediaManager_AddToPlaylistAndPlay", music);
+        },
+        goPlaylist: function (index) {
+            alfredWebsocket.send("MediaManager_GoPlaylist", {
+				index: index
+			});
+        },
+        setPosition: function (position) {
+            alfredWebsocket.send("MediaManager_SetPosition", {
+				position: position
+			});
         }
     };
     
