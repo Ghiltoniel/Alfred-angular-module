@@ -646,6 +646,11 @@ alfred.factory('alfredClient', function(alfredWebsocket, alfredAuth, alfredParam
 				index: index
 			});
         },
+        deleteFromPlaylist: function (index) {
+            alfredWebsocket.send("MediaManager_DeleteFromPlaylist", {
+				index: index
+			});
+        },
         setPosition: function (position) {
             alfredWebsocket.send("MediaManager_SetPosition", {
 				position: position
